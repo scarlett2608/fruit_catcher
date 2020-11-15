@@ -64,8 +64,10 @@ class Game{
                          
                      }
                     
-                     
-                 
+              textSize(30);
+              fill('white');       
+              text('Player 1:'+allPlayers.player1.score,100,30);
+              text('Player 2:'+allPlayers.player2.score,100,60);
                  }
                 
                 
@@ -101,13 +103,18 @@ class Game{
                      
 
                  }
-               
+               //console.log(players[index]);
+               if(player.index != null){
                  for(var i = 0; i < fruitGroup.length; i++){
-                     if(fruitGroup.get(i).isTouching(players[index-1])){
-                         fruitGroup.get(i).destroy();
-
+                     console.log(index);
+                     if(fruitGroup.get(i).isTouching(players)){
+                        fruitGroup.get(i).destroy();
+                        player.score++
+                        player.update();
                      }
                  }
+                }
+                 
                   
                 
 
